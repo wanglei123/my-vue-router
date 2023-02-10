@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fibonacci(num) {
+    
+    if (typeof num !== 'number'){
+        console.log('请输入数字');
+        return;
+    }
+    
+  let last1 = 1;
+  let last2 = 0;
+  let res = last2
+  for(let i=1;i<=num;i++){
+    last2 = last1
+    last1 = res 
+    res = last1 + last2
+  }
+  return res 
+    
+}
+
+function trans(caseStr) {
+if (!caseStr || typeof caseStr !== 'string'){
+    console.log('非法字符串,请重新输入');
+    return;
+}
+let res = '';
+const pattern = /^[A-Z]$/;
+if (caseStr.indexOf('-') > -1){
+    const newStrArr = caseStr.split('-');
+    console.log('newStrArr', newStrArr)
+    newStrArr.forEach((str,index) =>{
+        str.trim();
+        if (index > 0){
+            str = str.slice(0, 1).toUpperCase() + str.slice(1);
+        }
+                res += str;
+     })
+    
+} else {
+    const strArr = caseStr.split('');
+    strArr.forEach((str) =>{
+        if(pattern.test(str)){
+            str = '-' + str.toLowerCase();
+        }
+        res += str;
+    })
+    
+    
+}
+
+return res;
+}
+
+var search = function(nums, target) {
+    let index = -1;
+    for(let i = 0;i<=nums.length;i++){
+        console.log(123, nums[i])
+        if (target === nums[i]){
+            index = i;
+            break;
+        }
+    }
+    return index
+};
+console.log(search([-1,0,3,5,9,12],9))
+
+    </script>
+</body>
+</html>
